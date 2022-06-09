@@ -26,7 +26,7 @@ import {
     setThing
 } from "@inrupt/solid-client";
 
-import { VCARD, RDF, AS, SCHEMA_INRUPT } from "@inrupt/vocab-common-rdf";
+import { VCARD, RDF, AS, SCHEMA_INRUPT, FOAF } from "@inrupt/vocab-common-rdf";
 
 // DOM elements that we are gonna use
 const main = document.querySelector("main");
@@ -117,7 +117,7 @@ async function readProfile() {
 
     const profile = getThing(myDataset, webID);
 
-    const formattedName = getStringNoLocale(profile, VCARD.fn);
+    const formattedName = getStringNoLocale(profile, FOAF.name);
 
     // UPDATE HTML FOR NAME
     welkom.classList.remove("d-none");
@@ -135,6 +135,8 @@ async function createList() {
 
     //TRY TO GET THE LIST FROM THE POD
     try {
+        list = await getSolidDataset(readingListUrl, { fetch: fetch });
+
         // CLEARING THE LIST TO OVERRIDE
         let items = getThingAll(list);
         items.forEach((item) => {
