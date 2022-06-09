@@ -187,13 +187,7 @@ async function getTodoList() {
         const readingListUrl = `${SELECTED_POD}workshop/ToDo/studyList`;
         list = await getSolidDataset(readingListUrl, { fetch: fetch });
 
-        let savedReadingList = await saveSolidDatasetAt(
-            readingListUrl,
-            list,
-            { fetch: fetch }
-        );
-
-        savedReadingList = await getSolidDataset(readingListUrl, { fetch: fetch });
+        let savedReadingList = await getSolidDataset(readingListUrl, { fetch: fetch });
 
         let items = getThingAll(savedReadingList);
 
