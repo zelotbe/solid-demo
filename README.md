@@ -2,14 +2,19 @@
 
 This is a very basic workshop given on school about [Solid](https://solidproject.org/) (Decentralized data).
 
-## Running dev environment
-
-This project uses webpack to compile.
 
 #### Installation
 
 ```bash
 npm i 
+```
+
+## Running dev environment
+
+This project uses webpack to compile.
+
+```bash
+npm run dev 
 ```
 
 #### Building
